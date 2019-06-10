@@ -16,7 +16,9 @@ def main():
                 print('You said: {}'.format(text))
                 if format(text) == 'L1 na escuta':
                     greet = TalkRunner("i'm fine dude")
-                    greet.run();
+                    greet.run()
+                    while True:
+                        pass
                 elif format(text) == 'parou':
                     break
                 os.remove('response.mp3')
