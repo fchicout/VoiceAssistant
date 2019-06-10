@@ -7,5 +7,5 @@ class Action(Runner):
         self.runner = runner
         self.args = args
 
-    def run(self, **args):
-        raise NotImplementedError
+    def run(self):
+        self.runner(self.args)
