@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
 import sys
+from runners.TalkRunner import TalkRunner
 import speech_recognition as sr
-from gtts import gTTS
-from playsound import playsound
 
 
 def main():
@@ -16,9 +15,8 @@ def main():
                 text = r.recognize_google(audio, language='pt-BR')
                 print('You said: {}'.format(text))
                 if format(text) == 'L1 na escuta':
-                    speech=gTTS("i'm fine dude")
-                    speech.save('response.mp3')
-                    playsound('response.mp3')
+                    greet = TalkRunner("i'm fine dude")
+                    greet.run();
                 elif format(text) == 'parou':
                     break
                 os.remove('response.mp3')
