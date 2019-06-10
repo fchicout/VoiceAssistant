@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import speech_recognition as sr
 from gtts import gTTS
 from playsound import playsound
@@ -6,7 +8,7 @@ from playsound import playsound
 
 r = sr.Recognizer()
 while True:
-    with sr.Microphone() as source:
+    with sr.Microphone(device_index=0) as source:
         print('Falaê: ')
         audio = r.listen(source)
 
