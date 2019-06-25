@@ -35,7 +35,7 @@ while True:
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
         roi_color = frame[y:y + h, x:x + w] 
-        cv2.imwrite("./faces/" + str(w) + str(h) + '_faces.jpg', roi_color) 
+        cv2.imwrite("./faces/" + str(w) + str(h) + '_faces.jpg', roi_color)
 
     if anterior != len(faces):
         anterior = len(faces)
