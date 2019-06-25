@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import sys
+import os
 from runners.TalkRunner import TalkRunner
 import speech_recognition as sr
 
