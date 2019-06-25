@@ -8,7 +8,7 @@ from time import sleep
 
 cascPath = "/usr/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascPath)
-log.basicConfig(filename='webcam.log',level=log.INFO)
+log.basicConfig(filename='webcam.log', level=log.INFO)
 
 video_capture = cv2.VideoCapture(0)
 anterior = 0
@@ -39,10 +39,8 @@ while True:
         anterior = len(faces)
         log.info("faces: "+str(len(faces))+" at "+str(dt.datetime.now()))
 
-
     # Display the resulting frame
     cv2.imshow('Video', frame)
-
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
