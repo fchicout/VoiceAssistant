@@ -3,6 +3,7 @@
 import sys
 import os
 from runners.TalkRunner import TalkRunner
+from actions.ActionProcessor import ActionProcessor
 import speech_recognition as sr
 
 
@@ -14,24 +15,16 @@ def main():
             r.adjust_for_ambient_noise(source, duration=0.5)
             audio = r.listen(source)
             try:
+                # Brazilian Portuguese Recognition
                 text = r.recognize_google(audio, language='pt-BR')
-                print('You greeted: {}'.format(text))
-                if format(text) == 'L1 na escuta':
-                    greet = TalkRunner("i'm fine dude, what do you want")
-                    greet.run()
-                    while True:
-                        audio = r.listen(source)
-                        try:
-                            command = r.recognize_google(audio, language='pt-BR')
-                            # Work out actions here
-                            print('Your command: {}'.format(command))
-                            if format(text) == 'pausa':
-                                break
-                        except:
-                            pass
-                elif format(text) == 'parou':
+                # text = r.recognize_google(audio) # English recognition
+                print(format(text))
+                if 'computador' in format(text):
+                    print(format(text))
+                    # Send command to be processed
+                elif "pare" in format(text):
+                    print("Done")
                     break
-                os.remove('response.mp3')
             except:
                 print('Sorry, cant recognize')
 
